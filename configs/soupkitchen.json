@@ -1,0 +1,43 @@
+{
+  "layers": 28,
+  "d_model": 4096,
+  "n_heads": 16,
+  "n_vocab": 50400,
+  "norm": "layernorm",
+  "pe": "rotary",
+  "pe_rotary_dims": 64,
+  "seq": 2048,
+  "cores_per_replica": 8,
+  "per_replica_batch": 1,
+  "gradient_accumulation_steps": 32,
+  "warmup_steps": 10,
+  "anneal_steps": 104,
+  "lr": 2.4e-4,
+  "end_lr": 4.8e-5,
+  "weight_decay": 0.1,
+  "total_steps": 114,
+  "tpu_size": 8,
+  "bucket": "soupkitchen-training",
+  "model_dir": "soupkitchen_model_dir",
+  "train_set": "soupkitchen.train.index",
+  "val_set": {
+    "pile": "pile.val.index",
+    "owt": "openwebtext2_new_inputs.val.index",
+    "soupkitchen": "soupkitchen.val.index"
+  },
+  "eval_harness_tasks": [
+    "lambada",
+    "piqa",
+    "hellaswag",
+    "winogrande",
+    "mathqa",
+    "pubmedqa"
+  ],
+  "val_batches": 396,
+  "val_every": 50,
+  "ckpt_every": 50,
+  "keep_every": 1000,
+  "name": "gptj-soupkitchen-v1",
+  "wandb_project": "mesh-transformer-jax",
+  "comment": ""
+}
